@@ -1,0 +1,16 @@
+RECURSION NOTES :
+
+array = [1,2,3,4]
+
+Subarray : [1,2],[1,2,3] — is continuous and maintains relative order of elements ---- > count of all possible sub-arrays in a list is = (n*(n + 1))/2
+
+Subsequence: [1,2,4] — is not continuous but maintains relative order of elements ---- > count of all possible sub-sequence in a list is = 2^n - 1
+
+Subset: [1,3,2] — is not continuous and does not maintain the relative order of elements ---- > count of all possible sub-set in a list is = 2^n(Int includes one empty subset)
+
+
+
+
+
+
+
