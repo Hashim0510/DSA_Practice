@@ -1,0 +1,59 @@
+Subset Sums -- GFG
+
+
+QUESTION : Given a list arr of N integers, return sums of all subsets in it
+
+Example 1:
+
+Input:
+N = 2
+arr[] = {2, 3}
+Output:
+0 2 3 5
+Explanation:
+When no elements is taken then Sum = 0.
+When only 2 is taken then Sum = 2.
+When only 3 is taken then Sum = 3.
+When element 2 and 3 are taken then 
+Sum = 2+3 = 5.
+
+Solution:
+
+//User function Template for Java//User function Template for Java
+class Solution{
+    
+    ArrayList<Integer> subsetSums(ArrayList<Integer> arr, int N){
+        // code here
+        
+	//In the subset, we can have a possibility of generating all the subset by picking that current element or not, so we are moving to recursive algo to implement it. So that we can recursively generate all the subset sums.
+	
+        
+        ArrayList<Integer> ans = new ArrayList <> ();
+        
+        utilFunction(0, 0, arr, N, ans);
+        
+        return ans;
+        
+    }
+    
+    void utilFunction(int index, int sum, ArrayList<Integer> arr, int N, ArrayList<Integer> ans){
+        
+        if(index == N){
+            
+            ans.add(sum);
+            
+            return;
+            
+        }
+        
+        //pick the elemment
+        utilFunction(index + 1, sum, arr, N, ans);
+        
+        //not pick the elemment
+        utilFunction(index + 1, sum + arr.get(index), arr, N, ans);
+        
+    }
+
+    //TIME COMPLEXITY : O(2^n) -- >  becuase it is iterating all the possible subsets and generate the sum of it.
+    //SPACE COMPLEXITY : O(2^n) -- > because it is having 2^n function calls maximum in a function stack at a point of time 
+}
